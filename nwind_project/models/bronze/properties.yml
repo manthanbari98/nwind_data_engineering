@@ -1,0 +1,66 @@
+models:
+    - name : categories
+      config :
+        materialized : view
+      columns : 
+        - name : category_id
+          data_tests:
+            - unique
+            - not_null
+
+    - name : customers
+      config :
+        materialized : incremental
+      columns :
+        - name : customer_id
+          data_tests :
+            - unique
+            - not_null
+
+    - name : products
+      config :
+        materialized : incremental
+      columns :
+        - name : product_id
+          data_tests :
+            - unique
+            - not_null
+
+    - name : employees
+      config :
+        materialized : view
+      columns :
+         - name : employee_id
+           data_tests :
+            - unique
+            - not_null
+
+    - name : orders
+      config :
+        materialized : incremental
+      columns :
+        - name : order_id
+          data_tests :
+            - unique
+            - not_null
+
+    - name : order_details
+      config :
+        materialized : view
+    
+    - name : suppliers
+      config :
+        materialized : incremental
+      columns :
+        - name : supplier_id
+          data_tests :
+            - unique
+            - not_null
+
+    - name : shippers
+      config :
+        materialized : view
+
+    - name : shipments
+      config :
+        materialized : view

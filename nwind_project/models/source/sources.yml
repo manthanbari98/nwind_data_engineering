@@ -1,0 +1,23 @@
+sources:
+    - name : databricks_nwind
+      database : batch_process
+      schema : bronze
+      tables : 
+        - name : categories
+        - name : products
+        - name : customers
+          config :
+            loaded_at_field : ingestion_time
+            freshness:
+              warn_after:
+                count : 5
+                period : day
+              error_after:
+               count : 10
+               period : day
+        - name : employees
+        - name : orders
+        - name : order_details
+        - name : suppliers
+        - name : shippers
+        - name : shipments
